@@ -1,0 +1,16 @@
+
+<div class="new-article">
+<center><h1 style="font-size : 18px;"><%= t 'Edit article' %></h1></center>
+<br/>
+
+<div id="middle_pos">
+  <%= form_for @article, :url => :update_article do |f| %>
+    <%= render 'form', :f => f %>
+    <center><%= f.submit t('Submit update') %></center>
+    <%= f.hidden_field :id %>
+  <% end %>
+</div>
+
+
+
+</div>

@@ -1,0 +1,30 @@
+    <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+
+    <script>
+      var ajaxUrls = {
+      moreArticles : '<%= ajax_get_path %>',
+      voteUp : '<%= vote_up_path %>',
+      voteDown : '<%= vote_down_path %>',
+      favourite : '<%= set_favourite_path %>',
+      commentArticle : '<%= ajax_comment_path %>',
+      reportArticle : '<%= report_article_path %>',
+      getComments : '<%= get_comments_path %>',
+      addAsFriend : '<%= one_add_as_friend_path %>'
+      };
+      
+      var images_rev = {
+      loadingwait : '<%= image_tag "loadingwait.gif" %>',
+      commentWait : '<%= image_tag "waitcomments.gif" %>'
+      };
+
+
+      var noctuaGUI;
+  $(document).ready(function() {
+  <% if flash[:notice] %>
+    notify('<%= flash[:notice] %>');
+  <% elsif flash[:alert] %>
+    notify('<%= flash[:alert] %>');
+  <% end %>
+  noctuaGUI = new NoctuaGUI('<%= @categorie ? @categorie : 'specific_page' %>', '<%= ID_HV %>', <%= @conf ? @conf.advertisement : false %>);
+  });
+</script>

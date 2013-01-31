@@ -1,0 +1,49 @@
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+
+.show-profil {
+    padding-top : 10px;
+
+    h2 {
+	font-weight : bold;
+	font-size : 1.8em;
+    }
+    .separator {
+	margin-top : 5px;
+	border-bottom : 2px solid black;
+	margin-bottom : 5px;
+    }
+    .left {
+	width : 200px;
+	float : left;
+	.reputation {
+	    margin-top : 50px;
+	    .disp-nb {
+		text-align : center;
+		font-weight : bold;
+		font-size : 350%;
+		color : #808185;
+	    }
+	}
+    }
+    .right {
+	float : left;
+	th {
+	    font-weight : normal;
+	    padding-right : 30px;
+	}
+    }
+    .bottom {
+	margin-top : 20px;
+	.manage {
+	    
+	}
+    }
+}

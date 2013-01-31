@@ -1,0 +1,78 @@
+<% if @conf.stylesheet.present? %>
+  <%= stylesheet_link_tag @conf.stylesheet %>
+<% else %>
+  <style>
+    body {
+    background-color : <%= @conf.background_color %>;
+    }
+    .page-outer .page-header .texto {
+    color : <%= @conf.text_color %>;
+    
+    }    
+    .page-outer .page-container {
+    }
+
+
+    <% if @conf.html5_font == "Good Times" %>
+      @font-face {
+      font-family : "Good Times";
+      
+      src : url("<%= asset_path("GoodTimes/goodtime.eot?") %>") format("eot"),
+      url("<%= asset_path("GoodTimes/goodtime.woff") %>") format("woff"),
+      url("<%= asset_path("GoodTimes/goodtime.ttf") %>") format("truetype"),
+      url("<%= asset_path("GoodTimes/goodtime.svg#GoodTimes") %>") format("svg");
+      
+      font-weight : normal;
+      font-style : normal;
+      }
+    <% elsif @conf.html5_font == "akaDora" %>
+      
+      @font-face {
+      font-family : "Good Times";
+      src : url("<%= asset_path("akaDora/akaDora.eot?") %>") format("eot"),
+      url("<%= asset_path("akaDora/akaDora.woff") %>") format("woff"),
+      url("<%= asset_path("akaDora/akaDora.ttf") %>") format("truetype"),
+      url("<%= asset_path("akaDora/akaDora.svg#akaDora") %>") format("svg");
+      }
+      .page-outer .page-header .texto {
+      font-size : 40px;
+      }
+      
+    <% elsif @conf.html5_font == "AngelicaCP" %>
+      @font-face {
+      font-family : "Good Times";
+      src : url("<%= asset_path("AngelicaCP/AngelicaCP.eot?") %>") format("eot"),
+      url("<%= asset_path("AngelicaCP/AngelicaCP.woff") %>") format("woff"),
+      url("<%= asset_path("AngelicaCP/AngelicaCP.ttf") %>") format("truetype"),
+      url("<%= asset_path("AngelicaCP/AngelicaCP.svg#AngelicaCP") %>") format("svg");
+      font-style : normal;
+      }
+
+      .page-outer .page-header .texto {
+      font-size : 50px;
+      }
+      .b-pos {
+      font-size : 25px;
+      }
+
+    <% elsif @conf.html5_font == "UbuntuMedium" %>
+      @font-face {
+      font-family : "Good Times";
+      src : url("<%= asset_path("UbuntuMedium/Ubuntu-Medium.eot?") %>") format("eot"),
+      url("<%= asset_path("UbuntuMedium/Ubuntu-Medium.woff") %>") format("woff"),
+      url("<%= asset_path("UbuntuMedium/Ubuntu-Medium.ttf") %>") format("truetype"),
+      url("<%= asset_path("UbuntuMedium/Ubuntu-Medium.svg#UbuntuMedium") %>") format("svg");
+      font-style : normal;
+      }
+
+      .page-outer .page-header .texto {
+      font-size : 50px;
+      }
+      .b-pos {
+      font-size : 25px;
+      }
+
+    <% end %>
+
+  </style>
+<% end %>

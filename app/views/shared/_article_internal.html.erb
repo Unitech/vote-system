@@ -1,0 +1,58 @@
+<div class="art" alt="<%= article.id %>" done="0">
+  <div id="tit"> <a href="<%= article.url_article%>"><%= article.title %></a></div>
+  <div id="meta">
+    <div id="date"><%= time_ago_in_words(article.created_at) %> <%= t 'ago' %></div>
+    <% if article.username %>
+      <div id="user">User : <a href="<%= profil_show_path(:username => article.username) %>"><%= article.username %></a></div>
+    <% end %>
+    <div id="tags">
+      <span class="tit">Tags :</span>
+      <span class="content-tags">
+	<%= article.categorie %>,
+	<%= article.tags %>
+      </span>
+    </div>
+    <% if HEAT_INDICATOR == true %>
+    <div id="heat-indicator"></div>
+    <% end %>
+  </div>
+  
+  <div id="votes">
+    
+    <div class="nbvotes" id="nbvotes<%= article.id %>"><%= article.like_nb - article.dislike_nb %></div>
+
+    <div id="actionvote">
+      <div id="voteup" onclick="noctuaGUI.voteUp(<%= article.id %>)">Up</div>
+      <div id="votedown" onclick="noctuaGUI.voteDown(<%= article.id %>)">Down</div>
+    </div>
+  </div>
+  <div id="summary"></div>
+
+  <% if MARKDOWN_ARTICLE == true %>
+    <div id="description"><%= sanitize(RDiscount.new(article.description).to_html) %></div>
+  <% else %>
+    <div id="description"><%= auto_link(article.description) %></div>
+  <% end %>
+
+  <div id="submenu">
+
+    <% if article.comments.length > 0 %>
+      <a class="comment-more" id="sb-comments" onclick="noctuaGUI.showComments(<%= article.id %>)"><%= t 'Show comments' %> (<%= article.comments.length %>)</a> |
+    <% else %>
+      <a id="sb-comments" href="<%= article.url_article %>"><%= t 'Comments' %></a> |
+    <% end %>
+
+    <a onclick="noctuaGUI.addFavourite(<%= article.id %>)"><%= t 'Add to favourite' %></a> |
+    <a id="report"><%= t 'Report article' %></a> |
+
+    <%- # GCHECK QD USE DE NODEJS POUR LE RENDER (affiche le lien edit) %>
+    <% if user_signed_in? == true and defined? current_user == true and  current_user.username == article.username %>
+      <a class="edit" href="<%= article.url_edit_article %>"><%= t 'Edit' %></a> |
+    <% end %>
+
+    <span class="sharer">
+      <a id="twitter" href="http://twitter.com/intent/tweet?status=VoteSystem : <%= article.title %> - <%= request.url + article.url_article %>+via+%40strzel_a&url=<%= article.url_article %>&via=strzel_a" target="_blank"><%= image_tag 'twitter16.png' %></a></span>
+    <div class="comments">
+    </div>
+  </div>
+</div>

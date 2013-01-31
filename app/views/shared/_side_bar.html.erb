@@ -1,0 +1,16 @@
+<% if @hot_this_week and @best_ever %>
+  <div class="rightbare">
+    <h3 id="indicate-menu"><a href="#"><%= t 'Show Options' %></a></h3>
+    <h3><%= link_to t('all time greats'), best_path %></h3>
+    <%= render :partial => '/shared/mini_articles', :locals => {:articles => @best_ever } %>
+
+    <h3><%= link_to t('hot this week'), hottest_path %></h3>
+    <%= render :partial => '/shared/mini_articles', :locals => {:articles => @hot_this_week } %>
+    <h3>Categories</h3>
+    <span class="content-tags">
+      <% d =  @conf.categories.split(',').each { |d| %>
+	<%= link_to d, '/tag/' + d %><br/>
+      <% } %>
+    </span>
+  </div>
+<% end %>

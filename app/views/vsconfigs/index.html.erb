@@ -1,0 +1,55 @@
+<h1>Listing vsconfigs</h1>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Image</th>
+    <th>Subdomain</th>
+    <th>Resume</th>
+    <th>Table name</th>
+    <th>Date begin</th>
+    <th>Stylesheet</th>
+    <th>Author</th>
+
+    <th>Favicon</th>
+
+    <th>Advertisement</th>
+    <th>Ajax load</th>
+    <th>Anonymous vote</th>
+    <th>User reputation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vsconfigs.each do |vsconfig| %>
+  <tr>
+    <td><%= vsconfig.title %></td>
+    <% if vsconfig.image.file? %>
+      <td><%= image_tag vsconfig.image.url(:thumb) %></td>
+    <% end %>
+    <td><%= vsconfig.subdomain %></td>
+    <td><%= vsconfig.resume %></td>
+    <td><%= vsconfig.table_name %></td>
+    <td><%= vsconfig.date_begin %></td>
+    <td><%= vsconfig.stylesheet %></td>
+    <td><%= vsconfig.author %></td>
+
+    <td><%= vsconfig.favicon %></td>
+
+    <td><%= vsconfig.advertisement %></td>
+    <td><%= vsconfig.ajax_load %></td>
+    <td><%= vsconfig.anonymous_vote %></td>
+    <td><%= vsconfig.user_reputation %></td>
+    <td><%= link_to 'Show', vsconfig %></td>
+    <td><%= link_to 'Edit', edit_vsconfig_path(vsconfig) %></td>
+    <td><%= link_to 'Destroy', vsconfig, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Access', root_url(:subdomain => vsconfig.subdomain) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vsconfig', new_vsconfig_path %>

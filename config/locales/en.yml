@@ -1,0 +1,70 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  index : "Home"
+  hot this week : "Hot this week"
+  best weeks : "Best weeks"
+  all time greats : "All time greats"
+
+  Rss feed : "Feed RSS"
+  Best feed : "Popular RSS"
+
+
+  Post a new article ! : "Post a new article !"
+
+  Favourite posts : "Favourite posts"
+  My posts : "My posts"
+  Logged as : "Logged as "
+  Logout : "Logout"
+  Login : "Login"
+  Register : "Register"
+  Register with : "Log in with"
+
+  Report article : "Report article"
+  #
+  # Article internal 
+  #
+  ago : 'ago'
+  Show comments : 'Show comments'
+  Comments : 'Comments'
+  Add to favourite : 'Add to favourite'
+  Report article : "Report article"
+
+
+  #
+  # Misc
+  #
+
+  Show Options : 'Show options'
+  You must be logged in to comment : 'You must be logged in to comment'
+
+
+
+  #
+  # Devise
+  #   
+  Didn't receive confirmation instructions? : "Didn\'t receive confirmation instructions ?"
+  Sign up : "Sign up"
+  Sign in : "Sign in"
+
+
+
+  #
+  # Nouvel article
+  # 
+  A short summary of 160 characters maximum : 'A short summary of 160 characters maximum'
+  Try to be short and concise  : 'Try to be short and concise'
+  The type of your article : 'The type of your article'
+  Add the less tags you can and be the more explicit : "Add the less tags you can and be the more explicit"
+  Submit article : 'Submit article'
+  Post a new article : "Post a new article"
+
+  Markdown syntax : 'Markdown syntax'
+  HTML syntax : 'HTML syntax'
+  Summary : 'Summary (title)'
+  Content : "Content"
+  Type : 'Type'
+  Edit article : "Edit article"
+  Submit update : "Submit update"

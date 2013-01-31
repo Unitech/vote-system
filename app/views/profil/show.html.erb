@@ -1,0 +1,100 @@
+
+<div class="show-profil">
+  <div class="username">
+    <% if user_signed_in? == true and current_user.username == params[:username] %>
+      <h2>You are logged as : <%= @user.username %></h2>
+    <% else %>
+      <h2><%= @user.username %></h2>
+    <% end %>
+  </div>
+  <div class="separator"></div>
+
+
+  <div class="left">
+    <div class="reputation">
+      
+      <div class="disp-nb">
+	<%= @user.reputation %>
+	<div style="font-size : 30%; margin-top : 10px;">
+	  reputation
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <table class="table-infos">
+      <tr>
+	<th>Username</th>
+	<td><strong><%= @user.username %></strong></td>
+      </tr>
+      <tr>
+	<th>Member for</th>
+	<td><%= time_ago_in_words(@user.created_at) %></td>
+      </tr>
+      <tr>
+	<th>Last visit</th>
+	<td><%= time_ago_in_words(@user.last_sign_in_at) %></td>
+      </tr>
+      <tr>
+	<th>Website</th>
+	<td><a href="<%= @user.site_url %>" rel="nofollow" target="_blank"><%= @user.site_url %></a></td>
+      </tr>
+      <tr>
+	<th>Number posted article</th>
+	<td><%= @user.count_posted %></td>
+      </tr>
+      <tr>
+	<th>Hist posted articles</th>
+	<td><a href="<%= by_person_path %>/<%= @user.username %>"><%= @user.username %></a></td>
+      </tr>
+      <tr>
+	<th><br/>
+	  <a onclick="noctuaGUI.addAsFriend(<%= @user.id %>)">
+	    <%= image_tag 'follow.png' %>
+	  </a>
+	</th>
+	
+      </tr>
+    </table>
+  </div>
+
+  <div class="clear"></div>
+
+  <br/>
+  <div class="bottom">
+    <% if user_signed_in? == true and current_user.username == params[:username] %>
+      <h2>Account management</h2>
+      <div class="separator"></div>
+      <div class="manage">
+	<%= link_to('Edit registration', edit_user_registration_path) %>
+	<br/>
+	<%= link_to "Favourite articles", favourite_articles_path %>
+	<br/>
+	<a href="<%= by_person_path %>/<%=current_user.username %>">Your articles</a>
+      </div>
+    <% end %>
+  </div>
+  
+  <% if @articles != nil %>
+    <div class="bottom">
+      <h2>Articles posted</h2>
+      <div class="separator"></div>
+      <br/>
+      <div class="pagination-top">
+	<%= will_paginate @articles %>
+	<br/>	<br/>
+	<%= page_entries_info @articles %>
+      </div>
+      
+      <div id="articles">
+	<%= render :partial => 'shared/article', :locals => {:articles => @articles} %>
+      </div>
+      
+      <div class="pagination-bottom">
+	<%= will_paginate @articles %>
+      </div>
+
+    </div>
+  <% end %>
+</div>

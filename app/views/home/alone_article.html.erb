@@ -1,0 +1,81 @@
+<%= javascript_include_tag "show_article.js" if AJAX_LOAD %>
+
+
+<div style="padding-bottom : 7px;">
+  <%= link_to "<<< Back", url_for(flash[:old_back] || :back) %>
+</div>
+
+<div id="articles">
+  <%= render :partial => 'shared/article_internal', :locals => {:article => @article } %>
+
+
+  <div class="comments">
+    <div class="add-commment">
+      <h3>Add New Comment</h3>
+      <%= form_for @comment, :url => comments_path, :action => 'post' do |f| %>
+      <%= f.hidden_field :article_id, :value => @article.id %>
+      <table>
+	<% if user_signed_in? == false and @conf.anonymous_comment == true %>
+	  <tr>
+	    <th><%= f.label :anonymous_nick %></th>
+	    <td><%= f.text_field :anonymous_nick %></td>
+	  </tr>
+	  <tr>
+	    <th><%= f.label :anonymous_url %></th>
+	    <td><%= f.text_field :anonymous_url %></td>
+	  </tr>
+	  <tr>
+	    <th><%= f.label :content %></th>
+	    <td><%= f.text_area :content %></td>
+	  </tr>
+	  <tr>
+	    <th><%= f.submit %></th>
+	  </tr>
+	<% elsif user_signed_in? == false %>
+	  <tr>
+	    <th>You must be 
+	      <%= link_to "logged in", new_user_session_path %> or 
+	      <%= link_to "register", new_user_registration_path %> or 
+	      <a href="<%= user_omniauth_authorize_path(:facebook) %>">
+		<%= image_tag "fb.png" %>
+	      </a>
+	      to add a new comment
+	    </th>
+	    <td></td>
+	  </tr>
+	<% end %>
+	
+	<% if user_signed_in? == true %>
+	  <tr>
+	    <td><%= f.text_area :content, :rows => 5, :cols => 61 %></td>
+	  </tr>
+	  <tr>
+	    <th><%= image_submit_tag "postcomment.png" %></th>
+	  </tr>
+	<% end %>
+      </table>
+    </div>
+
+
+    <h3>Showing <%= @comments.length %> comments</h3>
+    <div class="content">
+      <%= render :partial => 'shared/comments', :locals => {:comments => @comments } %>
+    </div>
+  </div>
+
+<% end %>
+</div>
+
+<script>
+  $(document).ready(function(){
+  $('#new_comment').submit(function(e){
+
+  if ($(this).find('#comment_content').val() == '') {
+  notify('Comment must not be empty !');
+  return false;
+  }
+
+  });
+
+  });
+</script>

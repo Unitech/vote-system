@@ -1,0 +1,16 @@
+.pagination-top
+  = will_paginate @articles
+
+= render :partial => 'shared/side_bar'
+
+#articles
+  - if @index == true
+    %div{ :class => 'post-art', :alt => "x", :done => "0" }
+      %a{ :href => new_article_path, :title => 'new article'}
+        %div{ :id => 'add-article' }
+          = t 'Post a new article !'
+  = render :partial => 'shared/article', :locals => {:articles => @article }
+
+.pagination-bottom
+  = will_paginate @articles
+  

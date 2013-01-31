@@ -1,0 +1,168 @@
+
+fr:
+  index : "Accueil"
+  hot this week : "Articles semaine"
+  best weeks : "Compilations"
+  all time greats : "Mieux notés"
+
+  Rss feed : "Flux Rss"
+  Best feed : "Flux populaires"
+
+  Post a new article ! : "Postez un nouvel article !"
+
+  Post a new article : "Poster un nouvel article"
+  Favourite posts : "Favoris"
+  My posts : "Mes articles"
+  Logged as : "Connecté "
+  Logout : "Se déconnecter"
+  Login : "Se connecter"
+  Register : "S'enregistrer"
+  Register with : "Log avec"
+
+  Report article : "Signaler l'article"
+  #
+  # Article internal 
+  #
+  ago : ''
+  Show comments : 'Afficher les commentaires'
+  Comments : 'Ajouter un commentaire'
+  Add to favourite : 'Ajouter en favori'
+  Report article : "Reporter l'article"
+
+
+  #
+  # Misc
+  #
+
+  Show Options : 'Afficher options'
+  You must be logged in to comment : 'Vous devez être authentifié pour commenter'
+
+  will_paginate:
+    previous_label: "&#8592; Précédent"
+    next_label: "Suivant &#8594;"
+    page_gap: "&hellip;"
+    article:
+      page_entries:
+        single_page_html : ''
+
+  #
+  # Devise
+  #   
+  Didn't receive confirmation instructions? : 'Renvoyer le mail de confirmation'
+  Sign up : "S\'enregister"
+  Sign in : "S'identifier"
+
+
+  #
+  # Nouvel article
+  # 
+  A short summary of 160 characters maximum : 'Un bref résumé de maximum 160 caractères'
+  Try to be short and concise  : "Essayez d'être court et concit"
+  The type of your article : "La catégorie de l'article"
+  Add the less tags you can and be the more explicit : "Ajoutez le moins de tags possible et soyez le plus explicite possible"
+  Submit article : "Poster l'article"
+  Post a new article : "Poster un nouvel article"
+
+  Markdown syntax : 'Syntaxe markdown'
+  HTML syntax : 'Syntaxe HTML'
+  Summary : 'Résumé (titre)'
+  Content : "Contenu de l'article"
+  Type : 'Catégorie'
+  Edit article : "Édition d'article"
+  Submit update : "Soumettre les modifications"
+  
+
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Dimance, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Janvier, Fevrier, Mars, Avril, Mai, Juin, Juillet, Aout, Septembre, Octobre, Novembre, Decembre]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+
+# Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " et "
+      last_word_connector: ", et "
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "moins d'1 seconde"
+        other: "moins de %{count} secondes"
+      x_seconds:
+        one:   "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one:   "moins de a minute"
+        other: "moins de %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "environ 1 heure"
+        other: "environ %{count} heures"
+      x_days:
+        one:   "1 jour"
+        other: "%{count} jours"
+      about_x_months:
+        one:   "environ 1 mois"
+        other: "environ %{count} mois"
+      x_months:
+        one:   "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one:   "environ un an"
+        other: "environ %{count} ans"
+      over_x_years:
+        one:   "plus d'un an"
+        other: "over %{count} years"
+      almost_x_years:
+        one:   "almost 1 year"
+        other: "almost %{count} years"
+    prompts:
+      year:   "Annee"
+      month:  "Mois"
+      day:    "Jour"
+      hour:   "Heure"
+      minute: "Minute"
+      second: "Secondes"
+
+      # Attributes names common to most models
+  #attributes:
+    #created_at: "Created at"
+    #updated_at: "Updated at"
+
+  # Active Record models configuration
+  activerecord:
+    errors:
+      messages:
+        taken: "est déjà pris"
+        record_invalid: "Erreur de validation : %{errors}"
+        # Append your own errors here or at the model/attributes scope.

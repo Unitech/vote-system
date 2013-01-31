@@ -1,0 +1,18 @@
+<% articles.each do |a| %>
+  <span class="title_little">
+    <%= link_to truncate_words(a.title, 14), a.url_article %>
+  </span>
+  <span class="like_nb">
+    
+    <% like = a.like_nb - a.dislike_nb %>
+    <% if like < 0 %>
+    <span id="neg"><%= like %></span>
+  <% elsif like > 0 %>
+      <span id="pos"><%= like %></span>
+    <% else %>
+      <%= like %>
+    <% end %>
+    
+  </span>
+  <br/>
+<% end %>

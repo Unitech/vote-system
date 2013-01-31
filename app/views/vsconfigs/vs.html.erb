@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>VoteSystem - A generic social voting platform</title>
+    <%= stylesheet_link_tag "vs" %>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+                <script>
+	      $().ready(function() {
+	      $('#alexs').hover(function() {
+	      $(this).children().show();
+	      }, function() {
+	      $(this).children().hide();
+	      }).click(function() {
+	      window.location = 'http://apps.hemca.com';
+	      });
+	      });
+      </script>
+
+  </head>
+  <body>
+    <div class="middle">
+
+      <div id="alexs">
+	by A. Strzelewicz
+	<div id="pronoun" style="display : none; font-size : 11px; margin-top : 2px;">
+	  <center>\’ʂʈʀəɭəʍɪɔɦ\</center>
+	</div>
+      </div>
+
+      
+      <div id="logo">
+	<%= image_tag 'vs-logo.png' %>
+      </div>
+      
+      <div id="listing">
+	<% @vsconfigs.each do |c| %>
+	  <a href="<%= root_url(:subdomain => c.subdomain) %>">
+	    <div id="each">
+	      
+	      <div id="title">
+		<% if c.image.file? %>
+		  <%= image_tag c.image.url(:thumb) %>
+		<% end %>
+		<h2><%= link_to c.title, root_url(:subdomain => c.subdomain) %></h2>
+	      </div>
+	      
+	      <div id="sub">	      
+		<%= c.resume %>
+	      </div>
+	    </div>
+	  </a>
+	<% end %>
+
+      </div>
+    </div>
+  </body>
+</html>

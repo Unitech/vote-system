@@ -1,0 +1,470 @@
+@import "function";
+
+$maincolor : #3f3f3f;
+
+body {    
+    background-color: #212428; 
+    font:13px/1.231 sans-serif; 
+    *font-size:small; 
+}
+
+.page-outer {
+    margin-bottom : 100px;
+    .page-header {
+	margin-top : 58px;
+	margin-bottom : 20px;
+	text-align : center;
+	a {text-decoration : none;color : black;}
+	.texto {
+	    color : white;
+    	    font-family : "Good Times";
+    	    font-weight : bold;
+    	    margin-top : 22px;
+    	    text-align : center;
+    	    font-size : 26px;
+	}
+    }
+
+    .page-container {
+
+	z-index : 50;
+	text-align : left;
+	width : 900px;
+	line-height: 120%;
+	margin: 0 auto;
+	background-color: #fff; 
+	padding: 15px; 
+	positon : relative;
+	@include rounded(8px);
+	h2 {
+	    font-size : 20px;
+	    margin-bottom : 9px;
+	}
+
+    }
+    .page-profil {
+	margin-top : 20px;
+	min-height : 500px;
+    }
+    .page-home {
+	margin-top : 70px;
+	width : 1200px;
+    }
+    
+}
+
+.descr {
+    .site-descr {
+	z-index : 10;
+	background-color : #CCC;
+	color : black;
+	font-weight : bold;
+	width : 300px;
+	height : 60px;
+	padding : 10px;
+		
+	.text {
+	    margin-top : 5px;
+	    //display : none;
+	}
+	a {
+	    color : #111;
+	    font-weight : bold;
+	    text-decoration : none;
+	    border-bottom : solid 1px #D1D1D1;
+	}
+	a:hover {
+	    background-color : #111;
+	    color : white;
+	}    
+    }
+    
+    .site-descr-right {
+	position : absolute;
+	right : 0%;
+	top : 60px;
+	
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-bottom-left-radius : 8px;
+	-moz-border-bottom-left-radius: 8px;
+	-moz-border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-top-left-radius: 8px;
+    }
+    
+    .site-descr-left {
+	position : absolute;
+	left : 0%;
+	top : 60px;
+	
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius : 8px;
+	-moz-border-bottom-right-radius: 8px;
+	-moz-border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-right-radius: 8px;
+	
+	.author {margin-top : 12px;}    
+    }
+}
+
+
+#followbar {
+
+    padding-top : 6px;
+    position : fixed;
+    top : 0%;
+    right : 0%;
+    left : 0%;
+    
+    height : 28px;    
+    background-color : $maincolor;
+    z-index : 60;
+
+    border-bottom : 1px solid white;
+    a {
+	margin-right : 10px;
+	text-decoration : none;
+	color : white;
+    }    
+    a:hover {
+	border-bottom : 2px solid #CCC;
+	padding-bottom : 2px;
+	z-index : 61;
+    }
+
+    .menu-class {
+	display : inline;
+	padding-left : 5px;
+	a.selected {
+	    opacity : 0.9;
+	    border-top : 3px solid red;
+	    padding-top : 8px;
+	    font-weight : bold;
+	}
+    }
+    
+    
+    #left-links {
+	position :absolute;
+	left : 2px;
+	top : 3px;
+    }
+    #right-links {
+	position : absolute; 
+	right : 8px; 
+	top : 8px;
+    }
+
+}
+
+#searchbar {
+    width : 99%;
+    font-size : 100%;
+    margin-bottom : 8px;
+    margin-left : -1px;
+    padding : 4px;
+    color : #999;    
+    @include rounded(3px);
+	box-shadow : inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow : inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow : inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+
+}
+
+
+
+
+#notificator{
+    background-color : #3f3f3f;
+    color : white;
+    display : none;
+    position : fixed;
+    top : 40px;
+    right : 8px;
+    font-weight : bold;
+    padding : 15px;
+    padding-left : 40px;
+    padding-right : 40px;
+    z-index : 25;
+    border-radius : 5px 5px 5px 5px;
+}
+
+.ui-autocomplete {
+    width : 500px;
+    list-style-type : none;
+    background-color : white;
+    border : 1px solid #3f3f3f;
+    overflow : hidden;
+    z-index : 99999;
+    line-height : 1.22em;
+    font-size : 15px;
+    font-weight : bold;
+    .even {
+	background-color : #EEE;
+    }
+    a {
+	margin-bottom : 5px;
+	color : black;
+	text-decoration : none;
+    }
+    li {
+	padding : 5px;
+    }
+    li:hover {
+	color : white;
+	background-color : #3f3f3f;
+    }   
+}
+
+
+// Misc
+
+#chat {
+    position : fixed;
+    right : 0%;
+    bottom : 0%;
+    width : 250px;
+    height : 25px;
+    border : 1px solid black;
+    background-color : silver;
+    z-index : 2;
+}
+
+
+.chattoggled {
+    background-color : red !important;
+}
+
+
+
+.pagination {
+    display : inline;
+
+    .pagination-top {
+	padding-bottom : 50px;
+    }
+
+    .pagination-bottom {
+    }
+}
+
+.new-article {
+    width : 500px;
+    margin : 0 auto;
+    input {
+	padding : 5px;
+	border : 1px solid #ccc;
+	background : #F9F9F9;
+	box-shadow : inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow : inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow : inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+	@include rounded(5px);
+    }
+}
+
+.about {
+    margin : 0 auto;
+    min-height : 400px;
+    width : 800px;
+    border : 2px solid $maincolor;
+    padding : 5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;   
+}
+
+.end-message {
+    a {
+	text-decoration : none;
+	font-weight : bold;
+	border-bottom : solid 1px #D1D1D1;
+	color : white;
+    }
+    a:hover {
+	cursor:pointer;
+	color : white;
+	background-color : #111;
+    }
+}
+
+.best-weeks {
+    border : 1px solid black;
+    padding : 5px 5px 1px 5px;
+
+
+    .best {
+	height : 340px;
+	border : 1px solid black;
+	margin-bottom : 8px;
+	padding : 7px 7px 9px 9px;
+	background-color : $maincolor;
+	.b-date {
+	    width : 300px;
+	    padding : 5px;
+	    background-color : white;
+	    margin-bottom : 8px;
+	    @include rounded(8px);
+	    .b-pos {
+		text-align : center;
+		margin-top : 5px;
+		.bi-date {
+		    font-family : "Good Times";
+		    font-size : 20px;
+		}
+	    }
+	}
+	.best-list {
+	    background-color : white;
+	    @include rounded(5px);
+	    height : 290px;
+	    padding-top : 10px;
+	    .b-article:hover {
+		color : red !important;
+	    }
+	    .b-article {
+		border : 1px solid black;
+		height : 39px;
+		margin-left : 10px;
+		margin-bottom : 5px;
+		margin-right : 10px;
+		padding : 5px;
+		position : relative;
+		.b-title {
+		    position : absolute;
+		    top : 16px;
+		    left : 60px;
+		    padding-left : 20px;
+		    a {
+			font-weight : bold;
+			font-size : 1.3em;
+			text-decoration : none;
+			color : #3f3f3f;
+		    }
+		    a:hover {
+			text-decoration : underline;
+		    }
+		    display : inline-block;
+		}
+		.b-like {
+		    position : absolute;
+		    left : 15px;
+		    top : 12px;
+		    font-size : 1.3em;
+		    font-weight : bold;
+		}
+		.b-author {
+		    text-align : right;
+		    margin-top : 9px;
+		    margin-right : 5px;
+		    a {
+			font-size : 15px;
+			color : black;
+		    }
+		}
+	    }
+	}
+    }   
+}
+
+.propriety_footer {
+    margin-bottom : 5px;
+    margin-left : 5px;
+    font-size : 11px;
+    a {
+	color : black;
+	text-decoration : none;
+    }
+}
+
+.powered {
+    position : fixed;
+    top : 45px;
+    left : 5px;
+    z-index : 50;
+}
+
+.rightbare {
+    float : right;
+    margin-top : -60px;
+    margin-right : -155px;
+    padding : 10px;
+    width : 120px;
+    height : 500px;
+    color : black;
+    background-color : #CCC;
+    font-size : 11px;
+    line-height : 130%;
+    
+    moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 8px;
+
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+
+    border-top-right-radius: 8px 8px;
+    border-bottom-right-radius: 8px 8px;
+
+    #sep {
+	height : 25px;
+
+    }
+    h3 {
+	border-bottom : 1px dotted silver;
+	padding-bottom : 5px;
+	text-align : center;
+	font-size : 13px;
+	margin-top : 10px;
+	margin-bottom : 8px;
+
+	a {
+	    color : black;
+	    text-decoration : none;
+	}
+	a:hover {
+	    text-decoration : underline;
+	}
+    }
+    .content-tags {
+
+	a {
+	    display : inline-block;
+	    margin : 2px 0 0 0;
+	    padding : 1px;
+	    border : 1px solid #3f3f3f;
+	    -webkit-border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    border-radius: 5px;
+	    background-color : #3f3f3f;
+	    color : white;
+	    text-decoration : none;
+	}
+	a:hover {
+	    background-color : white;
+	    color : #3f3f3f;
+	}
+    }
+    #indicate-menu {
+    }
+    .title_little {
+	float : left;
+	a {
+	    text-decoration : none;
+	    color : #222;
+	}
+	a:hover {
+	    text-decoration : underline;
+	}
+    }
+    .like_nb {
+	float : right;
+	font-weight : bold;
+	#pos {
+	    color : green;
+	}
+	#neg {
+	    color : red;
+	}
+    }
+}

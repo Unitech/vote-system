@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title_page ? @title_page : 'All posts' %> | <%= @conf.title %> - <%= @conf.resume %></title>
+    
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    
+    <%= render :partial => 'shared/generic_css' %>
+
+    <%= render :partial => 'shared/meta' %>
+    <%= render :partial => 'shared/google_analytics' %>
+  </head>
+  
+  <body>
+    <div id="notificator"></div>
+    
+    <%= render :partial => 'shared/follow_bar' %>
+
+    
+    <!-- Ads -->
+    <% if @conf.advertisement == true and ( @categorie == :index or @categorie == :hottest or @categorie == :best ) %>
+      <div id="advertisement" style="display:none">
+	<div id="adve-1">
+	  <div class="adv adv-google" alt="0" done="1" ><script type="text/javascript">google_ad_client = "ca-pub-6739975234482700";/* emacs.vote-system */google_ad_slot = "1135850505";google_ad_width = 468;google_ad_height = 60;</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>	  
+	</div>
+      </div>
+    <% end %>
+
+	
+    <!-- Begining of in place content -->
+    <div class="page-outer">
+      <%= render :partial => 'shared/logo' %>
+      <div class="page-container">	
+	<%- # Search bar %>
+	<h2><%= raw @title_page ? @title_page : 'All commands' %></h2>
+	<div id="search">
+	  <input type="text" id="searchbar" data-autocomplete="<%= autocomplete_path %>">
+	</div>
+
+	<%= yield %>	
+      </div>
+    </div>
+    
+    <%= render :partial => 'shared/js_erb' %>    
+    <%= render :partial => 'shared/propriety_footer' %>    
+    <!-- image preload -->
+    <span style="display : none;"><%= image_tag "waitcomments.gif" %></span>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<%- # Center image + text %>
+<div class="page-header">
+  <a href="/">
+    <% if @conf.image.file? %>
+      <%= image_tag @conf.image.url %>
+    <% else %>
+      <div class="img">
+	No image !!!!
+      </div>
+    <% end %>
+    <% if @conf.display_title == true %>
+      <div class="texto">
+	<%= @conf.title %>
+      </div>
+    <% end %>
+  </a>
+</div>

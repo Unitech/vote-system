@@ -1,0 +1,22 @@
+<% comments.each do |c| %>
+  <div class="cmt">
+    <div class="meta-cmt">
+      <% if c.user %>
+	<span class="registred">
+	  <%= link_to c.user.username, c.user.url %>
+	</span>	      
+      <% else %>
+	<span class="anonymous">
+	  <a href="<%= c.anonymous_url %>"><%= c.anonymous_nick.to_s %></a>
+	  (Anonymous)
+	</span>
+      <% end %>
+      <span class="time">
+	<%= time_ago_in_words(c.created_at) %> ago
+      </span>
+    </div>
+    <div class="content">
+      <%= sanitize c.content %>
+    </div>
+  </div>
+<% end %>

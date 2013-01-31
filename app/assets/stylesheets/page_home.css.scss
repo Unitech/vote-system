@@ -1,0 +1,45 @@
+@import "function";
+
+.page-home {
+   
+    font:13px/1.231 sans-serif; 
+    
+    label {
+	display : inline-block;
+	color : #2F424E;
+	margin : 8px 0px 3px 0px;
+	text-shadow : 0 -1px 0 rgba(100, 100, 100, 0.1);
+	font-size : 18px;
+    }
+    .sign-up-form {
+	padding : 20px;
+	width : 20%;
+	margin : 0 auto;
+    }
+    .login {
+	padding : 20px;
+	width : 20%;
+	margin : 0 auto;
+    }
+    input[type=text], input[type=password], input[type=email] {
+	padding : 5px 5px 5px 12px;
+	background : none;
+	border : 1px solid #D8DEE2;
+	@include rounded(5px);
+    }
+
+
+    h1 {
+	font-size : 160%;
+	margin-bottom : 20px;
+	text-align : center;
+    }
+    h3 {
+	font-size : 140%;
+	border-bottom : 2px solid silver;
+	padding-bottom : 5px;
+	margin-bottom : 10px;
+	margin-top : 20px;
+    }
+    
+}

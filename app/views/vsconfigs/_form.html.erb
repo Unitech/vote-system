@@ -1,0 +1,187 @@
+
+<script>
+  function get_rgb(url_image) {
+  var img = new Image();
+  img.src = url_image
+  var context = document.getElementById('example').getContext('2d');
+  context.drawImage(img, 0, 0);
+  var data = context.getImageData(1, 1, 1, 1, function() {alert('lol');}).data;
+  
+  var rgb = 'rgb(' + data[0] + ',' + data[1] + ',' + data[2] + ')';
+  
+  //$('body').css({'background-color': rgb});
+  return rgb;
+  }
+  $(document).ready(function() {
+  $('#determinate').click(function() {
+  var rgb = get_rgb('<%= @vsconfig.image.url %>');
+  $('#vsconfig_background_color').val(rgb);
+  
+  });
+  });
+</script>
+
+
+<canvas style="display : none;" id="example" width="200" height="200"></canvas>
+
+ 
+
+<%= form_for(@vsconfig, :html => { :multipart => true } ) do |f| %>
+  <% if @vsconfig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vsconfig.errors.count, "error") %> prohibited this vsconfig from being saved:</h2>
+
+      <ul>
+      <% @vsconfig.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Global settings</h3>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :locale %>
+    <%= f.select :locale, ["default", "fr", "en"] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :subdomain %><br />
+    <%= f.text_field :subdomain %>
+  </div>
+
+  <div class="field">
+    <%= f.label :table_name %><br />
+    <%= f.text_field :table_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :date_begin %><br />
+    <%= f.datetime_select :date_begin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :idhv1 %><br />
+    <%= f.text_field :idhv1 %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :private %>
+    <%= f.label :private %>
+  </div>
+
+
+  <h3>Description</h3>
+  <div class="field">
+    <%= f.label :resume %><br />
+    <%= f.text_field :resume %>
+  </div>
+    <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+
+  <div style="float : left;">
+    <%= f.label :description_left %><br />
+    <%= f.text_area :description_left, :rows => 10 %>
+  </div>
+    <%= f.label :description_right %><br />
+    <%= f.text_area :description_right, :rows =>  10 %>
+
+  <div class="field">
+    <%= f.label :twitter_account %><br />
+    <%= f.text_field :twitter_account %>
+  </div>
+
+  <h3>Style</h3>
+
+  <% if @vsconfig.image.file? %>
+    <%= image_tag @vsconfig.image.url %>
+  <% end %>
+
+  <div class="field">    
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stylesheet %><br />
+    <%= f.text_field :stylesheet %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :favicon %><br />
+    <%= f.text_field :favicon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :background_color %><br />
+    <%= f.text_field :background_color %>   <input type="button" value="Determinate background color" id="determinate"/>
+  </div>
+
+  <h3>Categories</h3>
+  <div class="field">
+    <%= f.label :categories, "Categories (separated by ,)" %><br />
+    <%= f.text_field :categories, :size => 90 %>
+  </div>
+  
+  <h3>Editor type</h3>
+  <div class="field">
+    <%= f.label :editor_type %><br />
+    <%= f.select :editor_type, ["html", "markdown"] %>
+  </div>
+  
+  <h3>Font</h3>
+  <div class="field">
+    <%= f.check_box :display_title %>
+    <%= f.label :display_title %>
+  </div>
+  <div class="field">
+    <%= f.label :html5_font %><br />
+    <%= f.select :html5_font, ["none", "Good Times", "akaDora", "AngelicaCP", "UbuntuMedium"] %>
+  </div>
+  <div class="field">
+    <%= f.label :text_color %><br />
+    <%= f.text_field :text_color %>
+  </div>
+
+  <h3>Anonymous</h3>
+
+  <div class="field">
+    <%= f.check_box :anonymous_comment %>
+    <%= f.label :anonymous_comment %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :anonymous_vote %>
+    <%= f.label :anonymous_vote %>
+  </div>
+  
+  <h3>Ads</h3>
+  <div class="field">
+    <%= f.check_box :advertisement %>
+    <%= f.label :advertisement %>
+  </div>
+
+  <h3>Misc Settings</h3>
+  <div class="field">
+    <%= f.check_box :ajax_load %>
+    <%= f.label :ajax_load %>
+  </div>
+
+  <!-- <div class="field"> -->
+  <!--   <%= f.label :user_reputation %><br /> -->
+  <!--   <%= f.check_box :user_reputation %> -->
+  <!-- </div> -->
+  <h3>Submit</h3>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

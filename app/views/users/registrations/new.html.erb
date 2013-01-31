@@ -1,0 +1,62 @@
+<div class="devise">
+  <div class="sign-up-form">
+    <h2><%= t('Sign up') %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  
+  
+  <p>
+    <%= f.label :username %>
+    <br/>
+    <%= f.text_field :username %>
+  </p>
+    
+  <p>
+    <%= f.label :email %>
+    <br/>
+    <%= f.email_field :email %>
+  </p>
+    
+  <p>
+    <%= f.label :password %>
+    <br/>
+    <%= f.password_field :password %>
+  </p>
+    
+  <!-- <p> -->
+  <!--   <%= f.label :password_confirmation %> -->
+  <!--   <br/> -->
+  <!--   <%= f.password_field :password_confirmation %> -->
+  <!-- </p> -->
+
+  <!-- <p> -->
+  <!--   <%= f.label :site_url, "My website" %> -->
+  <!--   <br/> -->
+  <!--   <%= f.text_field :site_url %> -->
+  <!-- </p> -->
+    
+
+
+  <br/>
+  <center><%= f.submit "Sign up" %></center>
+<% end %>
+
+
+  <br/>
+<center>
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to t("Didn't receive confirmation instructions?"), new_confirmation_path(resource_name) %><br />
+  <% end -%>
+  ou
+  
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <a href="/users/auth/facebook"><%= image_tag 'fb_login_icon.gif' %></a>
+    <% end -%>
+  <% end -%>
+</center>
+
+  </div>
+</div>

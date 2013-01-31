@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  subdomain: MyString
+  resume: MyString
+  table_name: MyString
+  date_begin: 2011-08-31 01:10:49
+  stylesheet: MyString
+  author: MyString
+  description_left: MyText
+  description_right: MyText
+  favicon: MyString
+  twitter_account: MyString
+  html5_font: MyString
+  idhv1: MyString
+  advertisement: false
+  ajax_load: false
+  anonymous_vote: false
+  user_reputation: false
+
+two:
+  title: MyString
+  subdomain: MyString
+  resume: MyString
+  table_name: MyString
+  date_begin: 2011-08-31 01:10:49
+  stylesheet: MyString
+  author: MyString
+  description_left: MyText
+  description_right: MyText
+  favicon: MyString
+  twitter_account: MyString
+  html5_font: MyString
+  idhv1: MyString
+  advertisement: false
+  ajax_load: false
+  anonymous_vote: false
+  user_reputation: false

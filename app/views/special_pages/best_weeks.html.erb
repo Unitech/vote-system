@@ -1,0 +1,43 @@
+
+<%= render :partial => 'shared/side_bar' %>
+
+<div class="best-weeks">
+<% i = 0 %>
+<% while @best[i] %>
+  <% article = @best[i]%>
+  
+  <% if article.present? %>
+  <div class="best">
+    <div class="b-date">
+      <div class="b-pos">
+	<span class="bi-date"><%= article["from"].strftime(DATE_FORMAT) %></span>
+	to
+	<span class="bi-date"><%= article["to"].strftime(DATE_FORMAT) %></span>
+      </div>
+    </div>
+    
+    <div class="best-list">
+      <% article["data"].each do |a| %>
+	<div class=" b-article" onclick="window.location = '<%= a.url_article%>';">
+	  <div class="b-like">
+	    <div style="text-align :center; width : 30px;">
+	      <%= a.like_nb - a.dislike_nb %><br/>
+	      <span style="font-size : 12px">votes</span>
+	    </div>
+	  </div>
+	  <span class="b-title">
+	    <a href="<%= a.url_article%>"><%= a.title %></a>
+	  </span>
+	  <div class="b-author">
+	    by <a href="<%= profil_show_path(:username => a.username) %>"><%= a.username %></a>
+	  </div>
+	  <div></div>
+	</div>
+      <% end %>
+    </div>
+  
+  </div>
+  <% end %>
+  <% i += 1 %>
+<% end %>
+</div>

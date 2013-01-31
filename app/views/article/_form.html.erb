@@ -1,0 +1,69 @@
+
+<%= stylesheet_link_tag 'editor/style.css' %>
+<%= stylesheet_link_tag 'editor/html.css' %>
+<%= stylesheet_link_tag 'editor/markdown.css' %>
+
+<%= javascript_include_tag 'editor/conf.js' %>
+<%= javascript_include_tag 'editor/jquery.markitup.js' %>
+
+<script type="text/javascript" >
+  $(document).ready(function() {
+  <% if @conf.editor_type == 'markdown' %>
+    $("#article_description").markItUp(myMarkdownSettings);
+  <% else %>
+    $("#article_description").markItUp(mySettings);
+  <% end %>
+  
+  $('.new_article').submit(function(e) {
+  var tags = $('#article_tags').val().replace(/ /g, ',');
+  $('#article_tags').val(tags);
+  });
+
+  });
+</script>
+
+
+<!-- New article -->
+
+<%= render :partial => 'shared/error', :locals => {:object => @article} %>
+
+<div class="new-article">
+  <div class="field">    
+    <%= f.label :title, t('Summary') %>
+    <%= f.text_field :title, :size => 60 %>
+    <div class="help">
+      <%= t 'A short summary of 160 characters maximum' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, t("Content") %>
+    <% if @conf.editor_type == 'markdown' %>
+      <i>(<%= t 'Markdown syntax' %> : <a href="http://support.mashery.com/docs/customizing_your_portal/Markdown_Cheat_Sheet" target="_blank">Cheatsheet</a>)</i>
+    <% else %>
+      <i>(<%= t 'HTML syntax' %>)</i>
+    <% end %>
+    <%= f.text_area :description, :rows => 19, :cols => 20 %>
+    <div class="help">
+      <%= t('Try to be short and concise') %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :categorie, t("Type") %>
+    <%= f.select :categorie,  @conf.categories.split(',').collect! {|n| n.to_s} %>
+    <div class="help">
+      <%= t 'The type of your article' %>
+    </div>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :tags, "Extra tags" %>
+    <%= f.text_field :tags, :size => 15 %>
+    <div class="help">
+      <%= t 'Add the less tags you can and be the more explicit' %>
+    </div>
+  </div>
+</div>

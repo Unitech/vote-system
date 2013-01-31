@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @conf.title %> - <%= @conf.resume %></title>
+    
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    
+    <%= render :partial => 'shared/generic_css' %>
+    <%= render :partial => 'shared/meta' %>
+    <%= render :partial => 'shared/google_analytics' %>
+  </head>
+  
+  <body>
+    <div id="notificator"></div>
+    <%= render :partial => 'shared/follow_bar' %>
+    <div class="page-outer">
+      <%= render :partial => 'shared/logo' %>
+      <div class="page-container page-profil">
+	<%= yield %>
+      </div>
+    </div>
+    
+    <%= render :partial => 'shared/js_erb' %>
+
+  </body>
+</html>
